@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.4i.accountant</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//div[@id='storno']" position="after">
+                        <h2>4i Groups</h2>
+                        <div class="row mt16 o_settings_container" id="4i-accountant">
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                id="invoice_post_group"
+                                title="Group allowed to post journal entries">
+                                <div class="text-muted">
+                                    <p style="margin-bottom: 0">Select the group who can post journal entries. This affects posting</p>
+                                    <p style="margin-bottom: 0">-Customer Invoices/Credit Notes</p>
+                                    <p style="margin-bottom: 0">-Journal Entries</p>
+                                    <p style="margin-bottom: 0">-Vendor bills/Refunds</p>
+                                    <p style="margin-bottom: 0">-Employee Expenses</p>
+                                </div>
+                                <div class="o_setting_right_pane mt16">
+                                    <label for="journal_entry_group_id"/>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                    <div>
+                                        <field name="journal_post_group_id" widget="many2many_tags"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                id="payment_post_group"
+                                title="Group allowed to post payments">
+                                <div class="text-muted">
+                                    <p style="margin-bottom: 0">Select the group who can post payments. This affects posting</p>
+                                    <p style="margin-bottom: 0">-Vendor Payments</p>
+                                    <p style="margin-bottom: 0">-Customer Payments</p>
+                                </div>
+                                <div class="o_setting_right_pane mt16">
+                                    <label for="journal_entry_group_id"/>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                    <div>
+                                        <field name="payment_post_group_id" widget="many2many_tags"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                id="assets_post_group"
+                                title="Group allowed to validate deferred revenues and expenses">
+                                <div class="text-muted">
+                                    <p style="margin-bottom: 0">Select the group who can validate deferred revenues and expenses.</p>
+                                </div>
+                                <div class="o_setting_right_pane mt16">
+                                    <label for="journal_entry_group_id"/>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                    <div>
+                                        <field name="asset_post_group_id" widget="many2many_tags"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>
